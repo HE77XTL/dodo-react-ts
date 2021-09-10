@@ -39,6 +39,12 @@ module.exports = {
                             importLoaders: 2,
                         },
                     },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            sourceMap: IS_DEV,
+                        },
+                    },
                 ],
             },
         ]
