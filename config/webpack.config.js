@@ -7,7 +7,7 @@ const {resolve} = path;
 module.exports = {
     mode: 'production',
     entry: {
-        index: resolve(PROJECT_PATH, './src/index.js')
+        index: resolve(PROJECT_PATH, './src/index.ts')
     },
     output: {
         filename: `static/js/[name].[hash:8].js`,
@@ -26,6 +26,11 @@ module.exports = {
     ],
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.(le|c)ss$/,
                 use: [
@@ -48,5 +53,8 @@ module.exports = {
                 ],
             },
         ]
-    }
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
 };
