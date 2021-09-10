@@ -7,7 +7,7 @@ const {resolve} = path;
 module.exports = {
     mode: 'production',
     entry: {
-        index: resolve(PROJECT_PATH, './src/index.ts')
+        index: resolve(PROJECT_PATH, './src/index.tsx')
     },
     output: {
         filename: `static/js/[name].[hash:8].js`,
