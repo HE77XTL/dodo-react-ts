@@ -1,12 +1,17 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as ReactDOM from "react-dom";
+import './he.less'
 
-import './index.less'
-import './hello'
+import css from "./index.module.less"
 
 
 const App = () => {
-    return <div>你好， 何东升</div>;
+    return <div className={css.hello}>
+        hello1
+        <div className="he">
+            1111
+        </div>
+    </div>;
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));

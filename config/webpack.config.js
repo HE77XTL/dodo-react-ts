@@ -28,20 +28,22 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
                 exclude: /node_modules/,
+                use: {
+                    loader: 'ts-loader',
+                },
             },
             {
                 test: /\.(le|c)ss$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
+                        loader: IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
                     },
                     {
                         loader: 'css-loader',
                         options: {
                             sourceMap: IS_DEV,
-                            importLoaders: 2,
+                            importLoaders: 1,
                         },
                     },
                     {
@@ -58,3 +60,5 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
 };
+
+
