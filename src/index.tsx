@@ -1,3 +1,6 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
 import './he.less'
@@ -6,6 +9,15 @@ import css from "./index.module.less"
 
 
 const App = () => {
+
+    const a = function () {
+        return new Promise(resolve=> {
+            console.log(888)
+            resolve(1)
+        })
+    }
+    a()
+
     return <div className='demoPage'>
         hello1
         <div className="he">
