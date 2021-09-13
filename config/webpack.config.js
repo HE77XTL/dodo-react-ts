@@ -1,11 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const postcssNormalize = require('postcss-normalize');
 
 const {PROJECT_PATH, IS_DEV} = require('./constant');
+
+console.log(IS_DEV)
+
 const {resolve} = path;
 module.exports = {
     mode: 'production',
+    target: ['web', 'es5'],
     entry: {
         index: resolve(PROJECT_PATH, './src/index.tsx')
     },
@@ -43,7 +48,24 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             sourceMap: IS_DEV,
-                            importLoaders: 1,
+                            importLoaders: 2,
+                        },
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    require('postcss-flexbugs-fixes'),
+                                    [
+                                        'postcss-preset-env',
+                                        {
+                                            // 选项
+                                        },
+                                    ],
+                                    postcssNormalize(),
+                                ],
+                            },
                         },
                     },
                     {
