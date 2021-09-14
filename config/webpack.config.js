@@ -2,12 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssNormalize = require('postcss-normalize');
-
+const ESLintPlugin = require('eslint-webpack-plugin');
 const {PROJECT_PATH, IS_DEV} = require('./constant');
 
-console.log(IS_DEV)
-
 const {resolve} = path;
+
 module.exports = {
     mode: 'production',
     target: ['web', 'es5'],
@@ -28,6 +27,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: `static/css/[name]_v[hash].css`,
         }),
+        new ESLintPlugin({
+            extensions: ['ts', 'tsx',],
+            exclude: '/node_modules/'
+        })
     ],
     module: {
         rules: [
