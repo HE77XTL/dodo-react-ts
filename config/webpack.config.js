@@ -28,7 +28,7 @@ module.exports = {
             filename: `static/css/[name]_v[hash].css`,
         }),
         new ESLintPlugin({
-            extensions: ['ts', 'tsx','js', 'jsx',],
+            extensions: ['ts', 'tsx',],
             exclude: '/node_modules/'
         })
     ],

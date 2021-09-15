@@ -32,6 +32,7 @@ module.exports = merge(baseConfig, {
         static: './dist',
         host: SERVER_HOST, // 指定 host，不设置的话默认是 localhost
         port: SERVER_PORT, // 指定端口，默认是8080
+        // historyApiFallback: true,// 如果不适用hash 路由，可增加该配置
         client: {
             progress: false,
             overlay: {

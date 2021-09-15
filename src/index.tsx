@@ -3,6 +3,12 @@ import 'react-app-polyfill/ie11';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { HashRouter, Switch, Route, Link } from 'react-router-dom';
+
+import About from './view/about/About';
+import Home from './view/home/Home';
+
 import './he.less';
 
 const App = () => {
@@ -26,6 +32,29 @@ const App = () => {
                 <div className="childC">child</div>
             </div>
             <div className="childC">child</div>
+            <HashRouter>
+                <div>
+                    router demo
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to="/home">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/about">About</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <Switch>
+                    <Route path="/about">
+                        <About />
+                    </Route>
+                    <Route path="/home">
+                        <Home />
+                    </Route>
+                </Switch>
+            </HashRouter>
         </div>
     );
 };
