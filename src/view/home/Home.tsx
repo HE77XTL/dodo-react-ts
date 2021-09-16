@@ -8,7 +8,7 @@ const Home: React.FunctionComponent = () => {
     return <div>
         this is home page
         <div>
-            <a href="#he">btn</a>
+            <a href="#he">btn114</a>
         </div>
         <div style={{height: '1500px'}}>
             temp

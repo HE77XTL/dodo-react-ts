@@ -6,7 +6,22 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const { PROJECT_PATH, IS_DEV } = require('./constant');
 const tsImportPluginFactory = require('ts-import-plugin');
 
+const ReactRefreshTypeScript = require('react-refresh-typescript');
+
 const { resolve } = path;
+
+function getTransformersList() {
+    let transformersList = [];
+    IS_DEV && transformersList.push(ReactRefreshTypeScript());
+    transformersList.push(
+        tsImportPluginFactory({
+            libraryName: 'antd',
+            libraryDirectory: 'lib',
+            style: true,
+        })
+    );
+    return transformersList;
+}
 
 module.exports = {
     mode: 'production',
@@ -43,16 +58,12 @@ module.exports = {
                     options: {
                         transpileOnly: true,
                         getCustomTransformers: () => ({
-                            before: [ tsImportPluginFactory( {
-                                libraryName: 'antd',
-                                libraryDirectory: 'lib',
-                                style: true
-                            }) ]
+                            before: getTransformersList(),
                         }),
                         compilerOptions: {
-                            module: 'es2015'
-                        }
-                    }
+                            module: 'es2015',
+                        },
+                    },
                 },
             },
             {
@@ -98,7 +109,7 @@ module.exports = {
                                     'border-radius-base': '2px',
                                 },
                                 javascriptEnabled: true,
-                            }
+                            },
                         },
                     },
                 ],

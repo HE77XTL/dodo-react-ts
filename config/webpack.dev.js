@@ -1,30 +1,11 @@
 const webpack = require('webpack');
 const {merge} = require('webpack-merge');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const ReactRefreshTypeScript = require('react-refresh-typescript');
-
 
 const baseConfig = require('./webpack.config');
 const {SERVER_HOST, SERVER_PORT} = require('./constant');
 
-const tsLoader = baseConfig.module.rules.find((r) => {
-    if (r.use) {
-        return r.use.loader === 'ts-loader'
-    }
-    return false
-
-});
-
-if (tsLoader) {
-    tsLoader.use.options = {
-        ...tsLoader.use.options, // 可能为 undefined
-        getCustomTransformers: () => ({
-            before: [ReactRefreshTypeScript()],
-        }),
-        // transpileOnly: true,
-    };
-}
-
+// merge 在设置 getCustomTransformers 时会覆盖， 并没有正确合并
 module.exports = merge(baseConfig, {
     mode: 'development',
     devtool: 'eval-source-map',
