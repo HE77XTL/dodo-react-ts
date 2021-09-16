@@ -3,6 +3,7 @@ import 'react-app-polyfill/ie11';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './i18n/index'
 
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 
