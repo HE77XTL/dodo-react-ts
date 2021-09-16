@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'antd';
 
 const Home: React.FunctionComponent = () => {
     console.log('锚点测试')
@@ -14,6 +15,7 @@ const Home: React.FunctionComponent = () => {
         </div>
         <div id="he">
             dddd
+            <Button type='primary'>123</Button>
         </div>
     </div>;
 };
