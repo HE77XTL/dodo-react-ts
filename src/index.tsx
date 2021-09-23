@@ -3,10 +3,16 @@ import 'react-app-polyfill/ie11';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './i18n/index';
-
+import { Provider } from 'react-redux';
+import { store } from './reducer/store';
 import Router from './router/Router';
+import './i18n/index';
 
 const App = () => <Router />;
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);

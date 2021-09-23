@@ -29,10 +29,6 @@ const Router: React.FunctionComponent = () => (
                 <Home />
             </Route>
 
-            <Route path="/">
-                <Home />
-            </Route>
-
             {/* 404, 请保持该路由为最后一个 */}
             <Route path="*">
                 <NotMatch />
