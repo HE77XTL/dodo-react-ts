@@ -104,8 +104,8 @@ module.exports = {
                             sourceMap: IS_DEV,
                             lessOptions: {
                                 modifyVars: {
-                                    'primary-color': '#1DA57A',
-                                    'link-color': '#1DA57A',
+                                    'primary-color': '#095eab',
+                                    'link-color': '#095eab',
                                     'border-radius-base': '2px',
                                 },
                                 javascriptEnabled: true,

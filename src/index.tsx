@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { store } from './reducer/store';
 import Router from './router/Router';
 import './i18n/index';
+import './view/common/css/common.less'
 
 const App = () => <Router />;
 

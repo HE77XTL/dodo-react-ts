@@ -1,15 +1,22 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import enGB from './locales/en_GB';
-import zhCN from './locales/zh_CN';
+import enGB from './locales/en/en_GB';
+import zhCN from './locales/zh/zh_CN';
+
+import zhLoginNSTest from './locales/zh/zh_loginNSTest';
+import enLoginNSTest from './locales/en/en_loginNSTest';
+
+
 
 const resources = {
     enGB: {
         translation: enGB,
+        loginNSTest: enLoginNSTest
     },
     zhCN: {
         translation: zhCN,
+        loginNSTest: zhLoginNSTest,
     },
 };
 
