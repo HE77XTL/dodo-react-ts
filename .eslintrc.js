@@ -58,7 +58,7 @@ module.exports = {
                     PROJECT_PATH,
                     IS_DEV
                         ? 'config/webpack.dev.js'
-                        : 'config/webpack.config.js'
+                        : 'config/webpack.prod.js'
                 ),
             },
             typescript: {

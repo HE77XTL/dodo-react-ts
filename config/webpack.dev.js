@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const {merge} = require('webpack-merge');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-const baseConfig = require('./webpack.config');
+const baseConfig = require('./webpack.common');
 const {SERVER_HOST, SERVER_PORT} = require('./constant');
 
 // merge 在设置 getCustomTransformers 时会覆盖， 并没有正确合并
