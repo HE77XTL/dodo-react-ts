@@ -1,13 +1,29 @@
 import React from 'react';
+import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { Button, Form, Input } from 'antd';
 import LanguageChange from '../../component/languageChange/LanguageChange';
 import './LoginAndRgistry.less';
 
+import useRequest from '../../hooks/useRequest';
+
 const Login: React.FunctionComponent = () => {
     const { t } = useTranslation();
+    const { run } = useRequest({
+        url: 'url'
+    });
+
     const onFinish = (values: any) => {
+
+        run();
+
         console.log('Success:', values);
+        axios({
+            method: 'get',
+            url: 'http://localhost:3000/',
+        }).then((res) => {
+            console.log(res);
+        });
     };
 
     return (
