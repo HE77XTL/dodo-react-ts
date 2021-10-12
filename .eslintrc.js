@@ -39,7 +39,14 @@ module.exports = {
                 tsx: 'never',
             },
         ],
-        'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }]
+        'no-param-reassign': [
+            'error',
+            { props: true, ignorePropertyModificationsFor: ['state'] },
+        ],
+        // 参考：
+        // https://github.com/yannickcr/eslint-plugin-react/issues/2353
+        // https://www.bianchengquan.com/article/145380.html
+        'react/prop-types': 'off',
     },
     overrides: [
         {
@@ -56,9 +63,7 @@ module.exports = {
             webpack: {
                 config: resolve(
                     PROJECT_PATH,
-                    IS_DEV
-                        ? 'config/webpack.dev.js'
-                        : 'config/webpack.prod.js'
+                    IS_DEV ? 'config/webpack.dev.js' : 'config/webpack.prod.js'
                 ),
             },
             typescript: {
