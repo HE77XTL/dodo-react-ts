@@ -78,6 +78,7 @@
         "axios": "^0.22.0",
         "classnames": "^2.3.1",
         "i18next": "^20.6.1",
+        "query-string": "^7.0.1",
         "react": "^17.0.2",
         "react-app-polyfill": "^2.0.0",
         "react-dom": "^17.0.2",

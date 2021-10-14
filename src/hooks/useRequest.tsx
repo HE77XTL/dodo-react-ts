@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState, useCallback } from 'react';
+import { AxiosPromise } from 'axios';
 
-interface Props {
-    url: string;
-    data?: Record<string, any>;
-    config?: Record<string, any>;
-}
-
-const useRequest = ({ url, data, config }: Props) => {
+const useRequest = (cd: (p?: any) => AxiosPromise) => {
     const [loading, setLoading] = useState<boolean>(false);
+
     const [response, setResponse] = useState<any>(null);
     const [error, setError] = useState<any>(null);
 
-    function run() {
-        console.log(777)
-        setLoading(true);
-        setResponse(2);
-    }
+    const request = useCallback(() => {
+        cd().then((res) => {
+            console.log(res);
+        });
+    }, [cd]);
+
+    const run = () => {
+        request();
+    };
+
+    useEffect(() => {
+        request();
+    }, [request]);
 
     return {
         loading,
