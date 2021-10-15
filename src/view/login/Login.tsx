@@ -10,7 +10,7 @@ import useRequest from '../../hooks/useRequest';
 const Login: React.FunctionComponent = () => {
     const {t} = useTranslation();
 
-    const {run: getCats} = useRequest(Api.getCats);
+    const {run: getCats, response} = useRequest(Api.getCats);
 
     const onFinish = (values: any) => {
         console.log(values)
@@ -42,6 +42,9 @@ const Login: React.FunctionComponent = () => {
                             </Button>
                         </div>
                     </Form.Item>
+                    <div>
+                        {JSON.stringify(response)}
+                    </div>
                 </Form>
             </div>
         </div>

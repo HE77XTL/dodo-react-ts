@@ -10,6 +10,7 @@ const useRequest = (cd: (p?: any) => AxiosPromise) => {
     const request = useCallback(() => {
         cd().then((res) => {
             console.log(res);
+            setResponse(res)
         });
     }, [cd]);
 

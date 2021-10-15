@@ -5,6 +5,15 @@ axios.defaults.headers = {
     token: '123',
 };
 
+axios.interceptors.response.use(response => {
+    console.log('response----')
+    console.log(response)
+    if (response.status === 200) {
+        return false;
+    }
+    return response
+});
+
 const AxiosRequest = {
     get(url: string, params?: Record<string, string | number>) {
         const v = new Date().getTime();
