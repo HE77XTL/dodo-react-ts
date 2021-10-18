@@ -30,6 +30,7 @@ module.exports = {
         'no-console': IS_DEV ? 'off' : 'warn',
         'no-debugger': IS_DEV ? 'off' : 'warn',
         '@typescript-eslint/no-explicit-any': 'off',
+        "@typescript-eslint/ban-ts-comment": "off",
         'import/extensions': [
             'error',
             'ignorePackages',

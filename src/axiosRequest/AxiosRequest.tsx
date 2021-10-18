@@ -5,14 +5,18 @@ axios.defaults.headers = {
     token: '123',
 };
 
-axios.interceptors.response.use(response => {
-    console.log('response----')
-    console.log(response)
-    if (response.status === 200) {
-        return false;
-    }
-    return response
-});
+
+// 添加请求拦截器
+axios.interceptors.request.use(
+    (config) => config,
+    (error) => Promise.reject(error)
+);
+
+// 添加响应拦截器
+axios.interceptors.response.use(
+    (response) => response.data,
+    (error) => Promise.reject(error)
+);
 
 const AxiosRequest = {
     get(url: string, params?: Record<string, string | number>) {

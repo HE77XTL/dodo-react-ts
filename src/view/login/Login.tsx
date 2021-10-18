@@ -1,39 +1,36 @@
 import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {Button, Form, Input} from 'antd';
-import Api from '../../axiosRequest/Api';
+import { useTranslation } from 'react-i18next';
+import { useHistory } from "react-router-dom";
+import { Button, Form, Input } from 'antd';
 import LanguageChange from '../../component/languageChange/LanguageChange';
 import './LoginAndRgistry.less';
 
-import useRequest from '../../hooks/useRequest';
+
 
 const Login: React.FunctionComponent = () => {
-    const {t} = useTranslation();
-
-    const {run: getCats, response} = useRequest(Api.getCats);
-
+    const { t } = useTranslation();
+    const history = useHistory();
     const onFinish = (values: any) => {
-        console.log(values)
-        getCats();
+        console.log(values);
     };
 
     return (
         <div className="login">
             <div className="languageChangeWrap">
-                <LanguageChange/>
+                <LanguageChange />
             </div>
             <div className="loginFormPanel">
                 <h3 className="app-text-center panelTitle">{t('login')}</h3>
                 <Form
-                    labelCol={{flex: '0 0 120px'}}
+                    labelCol={{ flex: '0 0 120px' }}
                     labelAlign="right"
                     onFinish={onFinish}
                 >
                     <Form.Item label={t('username')} name="username">
-                        <Input className="loginFormInput"/>
+                        <Input className="loginFormInput" />
                     </Form.Item>
                     <Form.Item label={t('password')} name="Password">
-                        <Input className="loginFormInput"/>
+                        <Input className="loginFormInput" />
                     </Form.Item>
                     <Form.Item>
                         <div className="formSubmitBtn">
@@ -42,10 +39,12 @@ const Login: React.FunctionComponent = () => {
                             </Button>
                         </div>
                     </Form.Item>
-                    <div>
-                        {JSON.stringify(response)}
-                    </div>
                 </Form>
+            </div>
+            <div>
+                <Button onClick={()=> {
+                    history.push('/registry')
+                }}>registry</Button>
             </div>
         </div>
     );
