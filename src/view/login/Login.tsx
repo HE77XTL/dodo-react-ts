@@ -1,15 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from "react-router-dom";
 import { Button, Form, Input } from 'antd';
 import LanguageChange from '../../component/languageChange/LanguageChange';
 import './LoginAndRgistry.less';
 
-
-
 const Login: React.FunctionComponent = () => {
     const { t } = useTranslation();
-    const history = useHistory();
     const onFinish = (values: any) => {
         console.log(values);
     };
@@ -40,11 +36,6 @@ const Login: React.FunctionComponent = () => {
                         </div>
                     </Form.Item>
                 </Form>
-            </div>
-            <div>
-                <Button onClick={()=> {
-                    history.push('/registry')
-                }}>registry</Button>
             </div>
         </div>
     );

@@ -1,10 +1,16 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import  { useEffect, useState, useCallback } from 'react';
 import { AxiosPromise } from 'axios';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
+interface ConfigInterface {
+    manual?: boolean;
+}
 
-const useRequest = (requestCallback: (p?: any) => AxiosPromise) => {
-    const [loading, setLoading] = useState<boolean>(false);
+const useRequest = (
+    requestCallback: (p?: any) => AxiosPromise,
+    config?: ConfigInterface | undefined
+) => {
+    const [loading] = useState<boolean>(false);
     const [response, setResponse] = useState<any>(null);
     const [error, setError] = useState<any>(null);
     const history = useHistory();
@@ -19,16 +25,16 @@ const useRequest = (requestCallback: (p?: any) => AxiosPromise) => {
                 //  5xx
                 if (err.response.status === 401) {
                     // 跳转登录
-                    history.push('/login')
+                    history.push('/login');
                 }
 
-                setError(err)
+                setError(err);
             })
             .finally(() => {
                 // loading 及相关处理
                 // 请求取消
                 // 全局唯一loading 动画处理
-                console.log('finally')
+                console.log('finally');
             });
     }, [requestCallback, history]);
 
@@ -37,8 +43,10 @@ const useRequest = (requestCallback: (p?: any) => AxiosPromise) => {
     };
 
     useEffect(() => {
-        request();
-    }, [request]);
+        if (!config || !config.manual) {
+            request();
+        }
+    }, [request, config]);
 
     return {
         loading,
