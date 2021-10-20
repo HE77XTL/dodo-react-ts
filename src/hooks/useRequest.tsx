@@ -23,7 +23,7 @@ const useRequest = (
                 // 请求失败处理
                 //  4xx
                 //  5xx
-                if (err.response.status === 401) {
+                if (err.response && err.response.status === 401) {
                     // 跳转登录
                     history.push('/login');
                 }
@@ -34,6 +34,7 @@ const useRequest = (
                 // loading 及相关处理
                 // 请求取消
                 // 全局唯一loading 动画处理
+                // 不同项目需求不一样，暂时不做处理
                 console.log('finally');
             });
     }, [requestCallback, history]);
