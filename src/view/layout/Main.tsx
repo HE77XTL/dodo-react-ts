@@ -4,6 +4,8 @@ import {Button} from 'antd';
 import useRequest from '../../hooks/useRequest';
 import Api from '../../axiosRequest/Api';
 
+import AppMenu from './appMenu/AppMenu'
+
 import './main.less'
 
 const Main: React.FunctionComponent = () => {
@@ -19,7 +21,7 @@ const Main: React.FunctionComponent = () => {
     return (
         <div className='appMainPage'>
             <div  className='mainMenu'>
-                menu
+                <AppMenu/>
             </div>
             <div className='mainContentWrap'>
                 <div className='mainHeader'>
