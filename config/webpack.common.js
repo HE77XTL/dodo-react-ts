@@ -80,6 +80,12 @@ module.exports = {
                         options: {
                             sourceMap: IS_DEV,
                             importLoaders: 2,
+                            modules: {
+                                auto: true,
+                                localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                                localIdentHashSalt: "dodo",
+
+                            },
                         },
                     },
                     {

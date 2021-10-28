@@ -6,6 +6,7 @@ import Api from '../../axiosRequest/Api';
 
 import AppMenu from './appMenu/AppMenu'
 
+import style from './main.module.less'
 import './main.less'
 
 const Main: React.FunctionComponent = () => {
@@ -36,7 +37,7 @@ const Main: React.FunctionComponent = () => {
                             <Link to="/registry"> to registry Page </Link>
                         </div>
                         <div>
-                            <p>this is response </p>
+                            <p className={style.moduletest} >this is response </p>
                             <p>{response}</p>
                         </div>
                         <div>
