@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import useSWR from 'swr';
 import { Menu } from 'antd';
 import {
     AppstoreOutlined,
@@ -9,12 +10,17 @@ import {
 const { SubMenu } = Menu;
 
 const AppMenu: React.FunctionComponent = () => {
+
+    // const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+    // const { data, error } = useSWR('http://localhost:3001/cats', fetcher);
+
     const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
     const [openKeys, setOpenKeys] = useState(['sub1']);
 
     function onOpenChange(keys: Array<any>) {
-        console.log('keys')
-        console.log(keys)
+        console.log('keys');
+        console.log(keys);
 
         const latestOpenKey = keys.find(
             (key: string) => openKeys.indexOf(key) === -1
@@ -28,11 +34,11 @@ const AppMenu: React.FunctionComponent = () => {
 
     return (
         <div>
-            <div style={{height: '80px', background: '#ccc', padding: '10px'}}>
+            <div
+                style={{ height: '80px', background: '#ccc', padding: '10px' }}
+            >
                 logo
-                <div>
-                    {openKeys}
-                </div>
+                <div>{openKeys}</div>
             </div>
             <Menu
                 mode="inline"

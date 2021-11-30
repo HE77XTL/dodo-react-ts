@@ -1,5 +1,7 @@
-import 'react-app-polyfill/ie11';
+// ie 兼容
+// import 'react-app-polyfill/ie11';
 // import 'react-app-polyfill/stable';
+// import "@babel/polyfill";
 
 import React from 'react';
 import ReactDOM from 'react-dom';

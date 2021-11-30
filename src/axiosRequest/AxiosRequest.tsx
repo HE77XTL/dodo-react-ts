@@ -5,7 +5,6 @@ axios.defaults.headers = {
     token: '123',
 };
 
-
 // 添加请求拦截器
 axios.interceptors.request.use(
     (config) => config,

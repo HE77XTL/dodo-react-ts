@@ -1,6 +1,6 @@
 const path = require('path');
 const IS_DEV = process.env.NODE_ENV !== 'production';
-const SERVER_HOST = '127.0.0.1';
+const SERVER_HOST = '10.8.11.37';
 const SERVER_PORT = 9001;
 
 const PROJECT_PATH = path.resolve(__dirname, '../');

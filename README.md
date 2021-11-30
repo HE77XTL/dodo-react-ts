@@ -14,10 +14,7 @@ npm run start
 ### hooks list
 
 ```
-useRequest: 自定义 /hooks/useRequest.tsx
-
 useInterval: 第三方 https://www.npmjs.com/package/use-interval
-
 ```
 
 
