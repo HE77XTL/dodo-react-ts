@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
-// import useSWR from 'swr';
 import { Menu } from 'antd';
 import {
     AppstoreOutlined,
     MailOutlined,
     SettingOutlined,
 } from '@ant-design/icons';
+import logo from '../../../asset/img/logo.png';
+import styles from './menu.module.less';
 
 const { SubMenu } = Menu;
 
 const AppMenu: React.FunctionComponent = () => {
-
-    // const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-    // const { data, error } = useSWR('http://localhost:3001/cats', fetcher);
-
     const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
     const [openKeys, setOpenKeys] = useState(['sub1']);
 
@@ -33,12 +29,9 @@ const AppMenu: React.FunctionComponent = () => {
     }
 
     return (
-        <div>
-            <div
-                style={{ height: '80px', background: '#ccc', padding: '10px' }}
-            >
-                logo
-                <div>{openKeys}</div>
+        <div className={styles.menu}>
+            <div className={styles.logoWrap}>
+                <img src={logo} className={styles.logoImg} alt="logo" />
             </div>
             <Menu
                 mode="inline"

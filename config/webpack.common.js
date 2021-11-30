@@ -34,6 +34,7 @@ module.exports = {
         filename: `static/js/[name].[hash:8].js`,
         path: path.resolve(PROJECT_PATH, './dist'),
         clean: true,
+        assetModuleFilename: 'images/[hash][ext][query]'
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -51,6 +52,14 @@ module.exports = {
     ],
     module: {
         rules: [
+            {
+                test: /\.(png|jpg|jpeg|gif)$/i,
+                type: 'asset/resource'
+            },
+            {
+                test: /\.svg/,
+                type: 'asset/inline'
+            },
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,

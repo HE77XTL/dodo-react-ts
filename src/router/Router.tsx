@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
-import About from '../view/about/About';
 import Home from '../view/home/Home';
 import NotMatch from '../view/404/NotMatch';
 import Main from '../view/layout/Main';
@@ -13,9 +12,6 @@ const Router: React.FunctionComponent = () => (
         <Switch>
             <Route path="/" exact={true}>
                 <Main />
-            </Route>
-            <Route path="/about">
-                <About />
             </Route>
             <Route path="/home">
                 <Home />

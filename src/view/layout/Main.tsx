@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-
-
-import Api from '../../axiosRequest/Api';
-
 import AppMenu from './appMenu/AppMenu';
-
-import style from './main.module.less';
 import './main.less';
 
 const Main: React.FunctionComponent = () => {

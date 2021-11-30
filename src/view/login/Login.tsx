@@ -4,13 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { Button, Form, Input } from 'antd';
 import LanguageChange from '../../component/languageChange/LanguageChange';
 import './LoginAndRgistry.less';
-import Api from "../../axiosRequest/Api";
-
 
 const Login: React.FunctionComponent = () => {
 
     const { t } = useTranslation();
-    const onFinish = (values: any) => {
+    const onFinish = () => {
         axios({
             method: 'post',
             url: 'http://localhost:3001/cats',
